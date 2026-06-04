@@ -1,0 +1,11 @@
+{
+  "bsonType": "object",
+  "required": ["user_id", "role", "content", "createTime"],
+  "permission": { "read": "doc.user_id == auth.uid", "create": true, "update": false, "delete": "doc.user_id == auth.uid" },
+  "properties": {
+    "user_id": { "bsonType": "string" },
+    "role": { "bsonType": "string", "enum": ["user", "assistant", "system"] },
+    "content": { "bsonType": "string" },
+    "createTime": { "bsonType": "timestamp" }
+  }
+}
