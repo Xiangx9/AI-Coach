@@ -15,6 +15,13 @@
 - 个人成长记录：体重、体脂、围度、BMI、周趋势和月趋势。
 - 会员中心：免费版/会员版权益、月会员/季会员/年会员方案。
 
+## 数据库存储
+
+- 用户资料：`pages/profile-edit/profile-edit.vue` 调用 `saveUserProfile` 写入 `users` 集合。
+- 训练计划：`pages/plan-generate/plan-generate.vue` 生成计划后调用 `saveTrainingPlan` 写入 `fitness_plan` 集合。
+- 饮食计划：`pages/diet-plan/diet-plan.vue` 生成饮食计划后调用 `saveDietPlan` 写入 `diet_plan` 集合。
+- 如果 UniCloud 环境未连接或写入失败，页面会先写入本地缓存，并显示“已本地缓存/云端写入失败”的状态，便于离线调试。
+
 ## UniCloud 服务空间
 
 `common/config.js` 中记录了服务空间与域名信息：

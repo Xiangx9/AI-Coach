@@ -83,6 +83,12 @@
       "style": {
         "navigationBarTitleText": "会员中心"
       }
+    },
+    {
+      "path": "pages/profile-edit/profile-edit",
+      "style": {
+        "navigationBarTitleText": "编辑资料"
+      }
     }
   ],
   "globalStyle": {

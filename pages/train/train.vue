@@ -12,6 +12,7 @@
     </view>
     <view class="card">
       <view class="title">我的训练计划</view>
+      <view class="subtitle">{{ planTitle }}</view>
       <view v-for="day in samplePlan" :key="day.weekDay" class="list-item">
         <view class="row"><text>{{ day.weekDay }}</text><text class="pill">{{ day.muscle }}</text></view>
         <view class="subtitle">{{ day.actions.join(' / ') }}</view>
@@ -22,6 +23,7 @@
 
 <script>
 import { buildLocalPlan } from '@/common/api.js'
+import { loadLatestTrainingPlan } from '@/common/database.js'
 export default {
   data() {
     return {
@@ -31,9 +33,20 @@ export default {
         { title: '健身房训练', desc: '器械路线与动作建议', url: '/pages/equipment/equipment' },
         { title: '动作库', desc: '胸背肩腿手臂核心', url: '/pages/actions/actions' }
       ],
-      samplePlan: buildLocalPlan({ trainPlace: 'home', daysPerWeek: 3 })
+      samplePlan: buildLocalPlan({ trainPlace: 'home', daysPerWeek: 3 }),
+      planTitle: '示例训练计划'
     }
   },
-  methods: { go(url) { uni.navigateTo({ url }) } }
+  onShow() { this.loadPlan() },
+  methods: {
+    go(url) { uni.navigateTo({ url }) },
+    async loadPlan() {
+      const saved = await loadLatestTrainingPlan()
+      if (saved?.plan?.length) {
+        this.samplePlan = saved.plan
+        this.planTitle = saved.title || '已保存训练计划'
+      }
+    }
+  }
 }
 </script>

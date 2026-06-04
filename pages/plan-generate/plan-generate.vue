@@ -34,6 +34,7 @@
         <view class="subtitle">{{ day.actions.join(' / ') }}</view>
       </view>
       <view v-if="aiAdvice" class="subtitle">AI补充建议：{{ aiAdvice }}</view>
+      <view v-if="saveStatus" class="subtitle">保存状态：{{ saveStatus }}</view>
     </view>
   </view>
 </template>
@@ -41,12 +42,13 @@
 <script>
 import { goals, places } from '@/common/data.js'
 import { buildLocalPlan, calcBMI, callAI, estimateDiet, getBodyType } from '@/common/api.js'
+import { saveTrainingPlan, saveUserProfile } from '@/common/database.js'
 export default {
   data() {
     return {
       genders: [{ label: '男', value: 'male' }, { label: '女', value: 'female' }], goals, places,
       form: { gender: 'male', age: 25, height: 175, weight: 70, bodyFat: '', goal: 'fat_loss', daysPerWeek: 4, trainPlace: 'home' },
-      loading: false, plan: [], diet: {}, aiAdvice: ''
+      loading: false, plan: [], diet: {}, aiAdvice: '', saveStatus: ''
     }
   },
   computed: {
@@ -63,6 +65,9 @@ export default {
       this.plan = buildLocalPlan(this.form)
       this.diet = estimateDiet(this.form)
       this.aiAdvice = await callAI([{ role: 'user', content: `请基于以下新手健身数据给出100字内安全建议：${JSON.stringify(this.form)}，BMI ${this.bmi}` }], 'plan')
+      await saveUserProfile({ ...this.form, nickname: '健身新手' })
+      const saved = await saveTrainingPlan({ form: this.form, plan: this.plan, diet: this.diet, aiAdvice: this.aiAdvice })
+      this.saveStatus = saved.ok ? '训练计划已写入 fitness_plan 数据库' : '云端写入失败，已本地缓存训练计划'
       this.loading = false
     }
   }
