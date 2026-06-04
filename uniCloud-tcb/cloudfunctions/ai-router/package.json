@@ -1,0 +1,7 @@
+{
+  "name": "ai-router",
+  "version": "1.0.0",
+  "description": "UniCloud proxy for FreeToken Router / ChatAnywhere chat completions",
+  "main": "index.js",
+  "dependencies": {}
+}
