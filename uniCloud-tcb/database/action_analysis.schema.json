@@ -1,0 +1,13 @@
+{
+  "bsonType": "object",
+  "required": ["user_id", "result", "score", "createTime"],
+  "permission": { "read": "doc.user_id == auth.uid", "create": true, "update": false, "delete": "doc.user_id == auth.uid" },
+  "properties": {
+    "user_id": { "bsonType": "string" },
+    "videoUrl": { "bsonType": "string" },
+    "result": { "bsonType": "string" },
+    "score": { "bsonType": "int" },
+    "suggestions": { "bsonType": "array" },
+    "createTime": { "bsonType": "timestamp" }
+  }
+}

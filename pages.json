@@ -1,0 +1,122 @@
+{
+  "pages": [
+    {
+      "path": "pages/home/home",
+      "style": {
+        "navigationBarTitleText": "AI健身指导"
+      }
+    },
+    {
+      "path": "pages/train/train",
+      "style": {
+        "navigationBarTitleText": "训练"
+      }
+    },
+    {
+      "path": "pages/coach/coach",
+      "style": {
+        "navigationBarTitleText": "AI教练"
+      }
+    },
+    {
+      "path": "pages/checkin/checkin",
+      "style": {
+        "navigationBarTitleText": "打卡"
+      }
+    },
+    {
+      "path": "pages/profile/profile",
+      "style": {
+        "navigationBarTitleText": "我的"
+      }
+    },
+    {
+      "path": "pages/plan-generate/plan-generate",
+      "style": {
+        "navigationBarTitleText": "AI生成计划"
+      }
+    },
+    {
+      "path": "pages/actions/actions",
+      "style": {
+        "navigationBarTitleText": "动作库"
+      }
+    },
+    {
+      "path": "pages/action-detail/action-detail",
+      "style": {
+        "navigationBarTitleText": "动作详情"
+      }
+    },
+    {
+      "path": "pages/equipment/equipment",
+      "style": {
+        "navigationBarTitleText": "健身房器械"
+      }
+    },
+    {
+      "path": "pages/equipment-detail/equipment-detail",
+      "style": {
+        "navigationBarTitleText": "器械详情"
+      }
+    },
+    {
+      "path": "pages/action-analysis/action-analysis",
+      "style": {
+        "navigationBarTitleText": "AI动作分析"
+      }
+    },
+    {
+      "path": "pages/body-record/body-record",
+      "style": {
+        "navigationBarTitleText": "身体数据"
+      }
+    },
+    {
+      "path": "pages/diet-plan/diet-plan",
+      "style": {
+        "navigationBarTitleText": "饮食计划"
+      }
+    },
+    {
+      "path": "pages/vip-center/vip-center",
+      "style": {
+        "navigationBarTitleText": "会员中心"
+      }
+    }
+  ],
+  "globalStyle": {
+    "navigationBarTextStyle": "white",
+    "navigationBarTitleText": "AI健身指导",
+    "navigationBarBackgroundColor": "#111827",
+    "backgroundColor": "#f6f7fb"
+  },
+  "tabBar": {
+    "color": "#6b7280",
+    "selectedColor": "#10b981",
+    "backgroundColor": "#ffffff",
+    "borderStyle": "black",
+    "list": [
+      {
+        "pagePath": "pages/home/home",
+        "text": "首页"
+      },
+      {
+        "pagePath": "pages/train/train",
+        "text": "训练"
+      },
+      {
+        "pagePath": "pages/coach/coach",
+        "text": "AI教练"
+      },
+      {
+        "pagePath": "pages/checkin/checkin",
+        "text": "打卡"
+      },
+      {
+        "pagePath": "pages/profile/profile",
+        "text": "我的"
+      }
+    ]
+  }
+}

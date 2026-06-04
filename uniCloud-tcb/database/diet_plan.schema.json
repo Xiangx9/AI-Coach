@@ -1,0 +1,16 @@
+{
+  "bsonType": "object",
+  "required": ["user_id", "calories", "protein", "carbs", "fat", "createTime"],
+  "permission": { "read": "doc.user_id == auth.uid", "create": true, "update": "doc.user_id == auth.uid", "delete": "doc.user_id == auth.uid" },
+  "properties": {
+    "user_id": { "bsonType": "string" },
+    "calories": { "bsonType": "int" },
+    "protein": { "bsonType": "int" },
+    "carbs": { "bsonType": "int" },
+    "fat": { "bsonType": "int" },
+    "breakfast": { "bsonType": "array" },
+    "lunch": { "bsonType": "array" },
+    "dinner": { "bsonType": "array" },
+    "createTime": { "bsonType": "timestamp" }
+  }
+}
