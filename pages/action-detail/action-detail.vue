@@ -2,7 +2,8 @@
   <view class="container">
     <view class="hero"><view class="title">{{ action.name }}</view><view class="subtitle">{{ action.muscle }} · 推荐 {{ action.sets }}</view></view>
     <view class="card">
-      <view class="media">GIF / 视频演示占位</view>
+      <view class="media">视频演示占位</view>
+      <view class="media small">GIF 演示占位</view>
       <view class="title">动作讲解</view><view class="subtitle">{{ action.description }}</view>
       <view class="divider"></view><view class="title">注意事项</view>
       <view v-for="tip in action.tips" :key="tip" class="list-item">✅ {{ tip }}</view>
@@ -22,4 +23,5 @@ export default {
 </script>
 <style scoped>
 .media { height: 320rpx; border-radius: 24rpx; background: #eef2f7; color: #6b7280; display:flex; align-items:center; justify-content:center; margin-bottom:24rpx; }
+.small { height: 180rpx; }
 </style>

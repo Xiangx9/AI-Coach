@@ -26,6 +26,7 @@
         <view><view class="muted">BMI</view><view class="metric">{{ bmi }}</view></view>
         <view><view class="muted">建议频率</view><view class="metric">{{ form.daysPerWeek }} 天/周</view></view>
       </view>
+      <view class="subtitle">体型分析：{{ bodyType }}</view>
       <view class="subtitle">热量 {{ diet.calories }} kcal；蛋白 {{ diet.protein }}g，碳水 {{ diet.carbs }}g，脂肪 {{ diet.fat }}g。</view>
       <view class="divider"></view>
       <view v-for="day in plan" :key="day.weekDay" class="list-item">
@@ -39,7 +40,7 @@
 
 <script>
 import { goals, places } from '@/common/data.js'
-import { buildLocalPlan, calcBMI, callAI, estimateDiet } from '@/common/api.js'
+import { buildLocalPlan, calcBMI, callAI, estimateDiet, getBodyType } from '@/common/api.js'
 export default {
   data() {
     return {
@@ -53,7 +54,8 @@ export default {
     genderText() { return this.genders.find(i => i.value === this.form.gender)?.label },
     goalText() { return this.goals.find(i => i.value === this.form.goal)?.label },
     placeText() { return this.places.find(i => i.value === this.form.trainPlace)?.label },
-    bmi() { return calcBMI(this.form.height, this.form.weight) }
+    bmi() { return calcBMI(this.form.height, this.form.weight) },
+    bodyType() { return getBodyType(this.bmi, this.form.bodyFat) }
   },
   methods: {
     async generate() {

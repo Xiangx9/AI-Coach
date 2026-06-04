@@ -10,7 +10,10 @@
     <view v-if="result" class="card">
       <view class="title">结果反馈</view>
       <view class="metric">{{ result.score }} 分</view>
-      <view class="subtitle">{{ result.summary }}</view>
+      <view class="subtitle">姿势判断：{{ result.correctness }}</view>
+      <view class="subtitle">动作角度：{{ result.angle }}</view>
+      <view class="subtitle">关节位置：{{ result.joints }}</view>
+      <view class="subtitle">错误原因：{{ result.summary }}</view>
       <view v-for="item in result.suggestions" :key="item" class="list-item">{{ item }}</view>
     </view>
   </view>
@@ -27,7 +30,7 @@ export default {
     async analyse() {
       this.loading = true
       const advice = await callAI([{ role: 'user', content: `请以健身教练身份分析${this.note || '训练动作'}常见姿势问题，并输出3条修改建议。` }], 'action-analysis')
-      this.result = { score: 88, summary: advice, suggestions: ['保持核心收紧，避免腰椎代偿', '控制动作速度，不要借力', '如出现关节疼痛请停止训练'] }
+      this.result = { score: 88, correctness: '整体可继续练习，但需要控制核心与关节轨迹', angle: '建议保持膝/肘关节在舒适活动范围内，不追求过度幅度', joints: '膝盖、肩膀和腰椎应保持稳定，避免内扣、耸肩或塌腰', summary: advice, suggestions: ['保持核心收紧，避免腰椎代偿', '控制动作速度，不要借力', '如出现关节疼痛请停止训练'] }
       this.loading = false
     }
   }

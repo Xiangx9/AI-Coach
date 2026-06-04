@@ -6,6 +6,8 @@
       <view class="title">使用教程</view><view class="subtitle">{{ item.description }}</view>
       <view class="divider"></view><view class="title">注意事项</view>
       <view v-for="tip in item.tips" :key="tip" class="list-item">✅ {{ tip }}</view>
+      <view class="title">常见错误</view>
+      <view v-for="error in item.errors" :key="error" class="list-item">⚠️ {{ error }}</view>
       <button class="btn" @click="askCoach">咨询 AI</button>
     </view>
   </view>
