@@ -1,0 +1,15 @@
+{
+  "name": "AI健身指导",
+  "appid": "__UNI__AICOACH",
+  "description": "面向健身新手的 AI 体质评估、训练计划、饮食规划和动作指导小程序",
+  "versionName": "1.0.0",
+  "versionCode": "100",
+  "transformPx": false,
+  "uniStatistics": { "enable": false },
+  "mp-weixin": {
+    "appid": "",
+    "setting": { "urlCheck": true, "es6": true, "postcss": true, "minified": true },
+    "usingComponents": true
+  },
+  "h5": { "router": { "mode": "hash" } }
+}

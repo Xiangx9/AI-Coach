@@ -1,0 +1,13 @@
+{
+  "bsonType": "object",
+  "required": ["name", "description"],
+  "permission": { "read": true, "create": "auth.role == 'admin'", "update": "auth.role == 'admin'", "delete": "auth.role == 'admin'" },
+  "properties": {
+    "name": { "bsonType": "string" },
+    "image": { "bsonType": "string" },
+    "video": { "bsonType": "string" },
+    "description": { "bsonType": "string" },
+    "targetMuscle": { "bsonType": "array" },
+    "tips": { "bsonType": ["string", "array"] }
+  }
+}

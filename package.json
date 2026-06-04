@@ -1,0 +1,11 @@
+{
+  "name": "ai-coach-miniprogram",
+  "version": "1.0.0",
+  "private": true,
+  "description": "AI健身指导小程序（UniCloud + FreeToken Router）",
+  "scripts": {
+    "lint:json": "node scripts/validate-json.mjs",
+    "test": "npm run lint:json"
+  },
+  "devDependencies": {}
+}

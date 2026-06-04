@@ -1,0 +1,15 @@
+{
+  "bsonType": "object",
+  "required": ["name", "muscle", "level"],
+  "permission": { "read": true, "create": "auth.role == 'admin'", "update": "auth.role == 'admin'", "delete": "auth.role == 'admin'" },
+  "properties": {
+    "name": { "bsonType": "string" },
+    "muscle": { "bsonType": "string" },
+    "level": { "bsonType": "string", "enum": ["beginner", "intermediate", "advanced"] },
+    "video": { "bsonType": "string" },
+    "gif": { "bsonType": "string" },
+    "description": { "bsonType": "string" },
+    "tips": { "bsonType": ["string", "array"] },
+    "errors": { "bsonType": "array" }
+  }
+}

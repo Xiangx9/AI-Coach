@@ -1,0 +1,18 @@
+{
+  "bsonType": "object",
+  "required": ["nickname", "createTime"],
+  "permission": { "read": true, "create": true, "update": "doc.user_id == auth.uid", "delete": false },
+  "properties": {
+    "nickname": { "bsonType": "string", "description": "用户昵称" },
+    "avatar": { "bsonType": "string" },
+    "gender": { "bsonType": "string", "enum": ["male", "female"] },
+    "age": { "bsonType": "int" },
+    "height": { "bsonType": "double" },
+    "weight": { "bsonType": "double" },
+    "bodyFat": { "bsonType": "double" },
+    "goal": { "bsonType": "string", "enum": ["fat_loss", "muscle_gain", "body_shape", "endurance"] },
+    "trainPlace": { "bsonType": "string", "enum": ["home", "gym"] },
+    "vip": { "bsonType": "bool" },
+    "createTime": { "bsonType": "timestamp" }
+  }
+}

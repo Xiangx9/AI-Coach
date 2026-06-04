@@ -1,0 +1,13 @@
+{
+  "bsonType": "object",
+  "required": ["user_id", "orderNo", "amount", "type", "status", "createTime"],
+  "permission": { "read": "doc.user_id == auth.uid", "create": true, "update": "auth.role == 'admin'", "delete": false },
+  "properties": {
+    "user_id": { "bsonType": "string" },
+    "orderNo": { "bsonType": "string" },
+    "amount": { "bsonType": "double" },
+    "type": { "bsonType": "string", "enum": ["month", "quarter", "year"] },
+    "status": { "bsonType": "string", "enum": ["pending", "paid", "closed"] },
+    "createTime": { "bsonType": "timestamp" }
+  }
+}
