@@ -18,10 +18,10 @@
 `common/config.js` 中记录了服务空间与域名信息：
 
 - 服务空间名称：`ai-coach`
-- SpaceId：`env-00jy6faz3aab`
-- SpaceAppId：`2021005185664497`
-- request 域名：`https://env-00jy6faz3aab.api-hz.cloudbasefunction.cn`
-- socket 域名：`wss://env-00jy6faz3aab.api-hz.cloudbasefunction.cn`
+- SpaceId：`*****b`
+- SpaceAppId：`*****`
+- request 域名：`https://*****.cn`
+- socket 域名：`wss://*****.cn`
 
 > 安全说明：AK/SK 和 AI API Key 不应提交到前端代码仓库。请在 UniCloud 控制台或云函数环境变量中配置。
 
